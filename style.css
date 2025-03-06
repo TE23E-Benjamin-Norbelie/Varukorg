@@ -1,18 +1,29 @@
-*{
+
+
+
+body{
+    background-color: #a8ebc5;
+    font-family: "Emilys Candy", serif;
+    text-align: center;
     margin: 0;
     padding: 0;
 }
-body{
-    font-family: "Emilys Candy", serif;
-    text-align: center;
-    
-}
 header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px;
+background-color: #fff;
+}
+.icons{
+    display: flex;
+    gap: 15px;
+    font-size: 24px;
+}
+.produkt-grid{
+    display: grid;
+    grid-template-columns:repeat(4,1fr) ;
+    gap: 20px;
+    padding: 20px;
+}
 
-}
-main{
-
-}
-footer{
-    
-}
