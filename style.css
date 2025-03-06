@@ -2,18 +2,18 @@
 
 
 body{
-    background-color: #a8ebc5;
+    background-color: #fff;
     font-family: "Emilys Candy", serif;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 20px;
-background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
 }
 .icons{
     display: flex;
@@ -25,5 +25,21 @@ background-color: #fff;
     grid-template-columns:repeat(4,1fr) ;
     gap: 20px;
     padding: 20px;
+}
+.produkt{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #a8ebc5;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px ;
+}
+.produkt bild{
+max-width: 100%;
+border-radius: 10px;
+}
+footer{
+    background: white;
+    padding: 10px;
+    margin-top: 20px;
 }
 
