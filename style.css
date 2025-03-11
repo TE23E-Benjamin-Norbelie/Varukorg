@@ -7,6 +7,9 @@ body{
     text-align: center;
     margin: 0;
     padding: 0;
+    border-top: 10px #a8ebc5;
+    border-left: 10px #a8ebc5;
+    border-right: 10px #a8ebc5;
 }
 header {
     display: flex;
@@ -44,14 +47,14 @@ footer{
 }
 
 @media (min-width: 768px) and (max-width:1024px){
-    .produkt{
+    .produkt-grid{
         grid-template-columns: repeat(2,1fr);
         max-width: 600px;
         margin: auto;
     }
     .produkt{
         padding: 15px;
-        border: 5px solid #a8ebc5;
+
     }
     p {
         font-size: 18px;
@@ -66,7 +69,7 @@ footer{
     }
     .produkt{
         padding: 15px;
-        border: 5px solid #a8ebc5;
+
     }
     p{
         font-size: 16px;
