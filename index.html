@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 
 <head>
@@ -17,10 +17,10 @@
     <header>
         <h1><span style="color:brown; font-style: italic;">Nalle</span>Björnar</h1></span></h1>
         <nav>
-            <div class="icons">
-                <span class="hjärta">❤️</span>
-                <span class="vagn">🛒</span>
-                <span class="meny">☰</span>
+            <div class="ikon">
+                <img src="img/heart.webp" alt="HJärta">
+                <img src="img/shopping-cart.webp" alt="Varukorg">
+                <img src="img/menu.webp" alt="Meny">
             </div>
         </nav>
     </header>
@@ -33,6 +33,10 @@
             <div class="produkt">
                 <img src="img/66699599df9df.webp" alt="">
                 <p>Björne: 175Kr</p>
+                <div class="vagn-knappar">
+                    <img src="img/plus.webp" onclick="läggTillIVarukorg(det)" alt="plus">
+                    <img src="img/delete.webp" onclick="taBortFrånVarukorg(det)" alt="minus">
+                </div>
             </div>
             <div class="produkt">
                 <img src="img/666c2fa053248.webp" alt="">

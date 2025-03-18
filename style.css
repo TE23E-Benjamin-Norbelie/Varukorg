@@ -18,10 +18,14 @@ header {
     padding: 20px;
     background-color: #fff;
 }
-.icons{
+.ikon{
     display: flex;
     gap: 15px;
-    font-size: 24px;
+}
+.ikon-bild{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
 .produkt-grid{
     display: grid;
@@ -54,19 +58,11 @@ border-radius: 10px;
     padding: 5px;
 }
 .vagn-knappar{
-    background: #a8ebc5;
-    border:none;
-    color: white;
-    padding: 5px 10px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    font-size: 16px;
     margin: 2px;
 }
-
-
-
-
-
 
 footer{
     background: white;
