@@ -15,12 +15,12 @@
 
 <body>
     <header>
-        <h1><span style="color:brown; font-style: italic;">Nalle</span>Björnar</h1></span></h1>
-        <nav>
+        <h1><span style="color:brown; font-style: italic;">Nalle</span>Björnar</h1>
+        <nav class="navbar">
             <div class="ikon">
-                <img src="img/heart.webp" alt="HJärta">
-                <img src="img/shopping-cart.webp" alt="Varukorg">
-                <img src="img/menu.webp" alt="Meny">
+                <img src="img/heart.webp" alt="Hjärta" class="nav-icon">
+                <img src="img/shopping-cart.webp" alt="Varukorg" class="nav-icon">
+                <img src="img/menu.webp" alt="Meny" class="nav-icon">
             </div>
         </nav>
     </header>
@@ -30,45 +30,96 @@
             sapiente, aliquid quam adipisci hic voluptas eius, numquam animi aperiam ex minus molestias temporibus eos
             modi vero?</p>
         <div class="produkt-grid">
-            <div class="produkt">
-                <img src="img/66699599df9df.webp" alt="">
+            <div class="produkt" data-id="1" data-namn="Björne" data-pris="175">
+                <img id="produkt-1" src="img/64ccb0448dddc.webp" alt="Björne">
                 <p>Björne: 175Kr</p>
-                <div class="vagn-knappar">
-                    <img src="img/plus.webp" onclick="läggTillIVarukorg(det)" alt="plus">
-                    <img src="img/delete.webp" onclick="taBortFrånVarukorg(det)" alt="minus">
+                <div class="vagn-knappar-container">
+                    <div class="vagn-knappar">
+                        <img src="img/delete.webp" onclick="taBortFrånVarukorg(1)" alt="Ta bort">
+                        <img src="img/plus.webp" onclick="läggTillIVarukorg(1)" alt="Lägg till">
+                    </div>
                 </div>
             </div>
-            <div class="produkt">
-                <img src="img/666c2fa053248.webp" alt="">
+            <div class="produkt" data-id="2" data-namn="Roger" data-pris="185">
+                <img id="produkt-2" src="img/60c1b2cbad7b2.webp" alt="Roger">
                 <p>Roger: 185Kr</p>
+                <div class="vagn-knappar-container">
+                    <div class="vagn-knappar">
+                        <img src="img/plus.webp" onclick="läggTillIVarukorg(2)">
+                        <img src="img/delete.webp">
+                    </div>
+                </div>
             </div>
-            <div class="produkt">
-                <img src="img/64ccb0448dddc.webp" alt="">
+            <div class="produkt" data-id="3" data-namn="Roger" data-pris="185">
+                <img id="produkt-3" src="img/666c2fa053248.webp" alt="Roger">
+                <p>Roger: 185Kr</p>
+                <div class="vagn-knappar-container">
+                    <div class="vagn-knappar">
+                        <img src="img/plus.webp" onclick="läggTillIVarukorg(3)">
+                        <img src="img/delete.webp" onclick="taBortFrånVarukorg(3)" style="display:none;">
+                    </div>
+                </div>
+            </div>
+            <div class="produkt" data-id="4" data-namn="Johan" data-pris="230">
+                <img id="produkt-4" src="img/64ccb0448dddc.webp" alt="Johan">
                 <p>Johan: 230Kr</p>
+                <div class="vagn-knappar-container">
+                    <div class="vagn-knappar">
+                        <img src="img/plus.webp" onclick="läggTillIVarukorg(4)">
+                        <img src="img/delete.webp" onclick="taBortFrånVarukorg(4)" style="display:none;">
+                    </div>
+                </div>
             </div>
-            <div class="produkt">
-                <img src="img/66e058fd675e3.webp" alt="">
+            <div class="produkt" data-id="5" data-namn="Björn" data-pris="195">
+                <img id="produkt-5" src="img/66e058fd675e3.webp" alt="Björn">
                 <p>Björn: 195Kr</p>
+                <div class="vagn-knappar-container">
+                    <div class="vagn-knappar">
+                        <img src="img/plus.webp" onclick="läggTillIVarukorg(5)">
+                        <img src="img/delete.webp" onclick="taBortFrånVarukorg(5)" style="display:none;">
+                    </div>
+                </div>
             </div>
-            <div class="produkt">
-                <img src="img/660151ef500b0.webp" alt="">
+            <div class="produkt" data-id="6" data-namn="Helge" data-pris="270">
+                <img id="produkt-6" src="img/660151ef500b0.webp" alt="Helge">
                 <p>Helge: 270Kr</p>
+                <div class="vagn-knappar-container">
+                    <div class="vagn-knappar">
+                        <img src="img/plus.webp" onclick="läggTillIVarukorg(6)">
+                        <img src="img/delete.webp" onclick="taBortFrånVarukorg(6)" style="display:none;">
+                    </div>
+                </div>
             </div>
-            <div class="produkt">
-                <img src="img/60c1b2cbad7b2.webp" alt="">
+            <div class="produkt" data-id="7" data-namn="Svennis" data-pris="335">
+                <img id="produkt-7" src="img/60c1b2cbad7b2.webp" alt="Svennis">
                 <p>Svennis: 335Kr</p>
+                <div class="vagn-knappar-container">
+                    <div class="vagn-knappar">
+                        <img src="img/plus.webp" onclick="läggTillIVarukorg(7)">
+                        <img src="img/delete.webp" onclick="taBortFrånVarukorg(7)" style="display:none;">
+                    </div>
+                </div>
             </div>
-            <div class="produkt">
-                <img src="img/6601526b32eb3.webp" alt="">
+            <div class="produkt" data-id="8" data-namn="Holger" data-pris="245">
+                <img id="produkt-8" src="img/6601526b32eb3.webp" alt="Holger">
                 <p>Holger: 245Kr</p>
+                <div class="vagn-knappar-container">
+                    <div class="vagn-knappar">
+                        <img src="img/plus.webp" onclick="läggTillIVarukorg(8)">
+                        <img src="img/delete.webp" onclick="taBortFrånVarukorg(8)" style="display:none;">
+                    </div>
+                </div>
             </div>
-            <div class="produkt">
-                <img src="img/66014ffa2cbaa.webp" alt="">
+            <div class="produkt" data-id="9" data-namn="Nalle" data-pris="160">
+                <img id="produkt-9" src="img/66014ffa2cbaa.webp" alt="Nalle">
                 <p>Nalle: 160Kr</p>
+                <div class="vagn-knappar-container">
+                    <div class="vagn-knappar">
+                        <img src="img/plus.webp" onclick="läggTillIVarukorg(9)">
+                        <img src="img/delete.webp" onclick="taBortFrånVarukorg(9)" style="display:none;">
+                    </div>
+                </div>
             </div>
-
-
-
         </div>
 
     </main>
