@@ -90,10 +90,14 @@ border-radius: 10px;
     padding: 5px;
 }
 .vagn-knappar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 30px;
     height: 30px;
     cursor: pointer;
     margin: 2px;
+
 }
 
 /* Positionera vagn-knappar-container längst ner */
@@ -120,7 +124,8 @@ border-radius: 10px;
     width: 30px;
     height: 30px;
     cursor: pointer;
-    transition: transform 0.2s ease
+    transition: transform 0.2s ease;
+    display: inline-block; /* Säkerställ att knapparna visas horisontellt */
 }
 
 /* Lägg till en hover-effekt för knapparna */
@@ -180,5 +185,100 @@ footer{
         justify-content: center;
         margin-top: 10px;
     }
+}
+
+/* Modal för varukorgen */
+.varukorg-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.varukorg-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#varukorg-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#varukorg-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#stäng-varukorg {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#stäng-varukorg:hover {
+    background: #d32f2f;
+}
+
+/* Dropdown-container */
+.varukorg-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown-innehåll */
+.dropdown-content {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 200px;
+    z-index: 1000;
+    display: none; /* Dold som standard */
+}
+
+/* Visa dropdown vid hover */
+.varukorg-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Stil för varukorgslistan */
+#dropdown-varukorg-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+#dropdown-varukorg-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+#dropdown-total-pris {
+    font-weight: bold;
+    text-align: right;
 }
 
