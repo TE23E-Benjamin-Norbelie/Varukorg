@@ -1,34 +1,39 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="sv"> <!-- Anger att dokumentet är på svenska -->
 
 <head>
+    <!-- Importera ett dekorativt typsnitt från Google Fonts -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap');
     </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <title>NalleBjörnar</title>
+    <meta charset="UTF-8"> <!-- Anger teckenkodning som UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Gör sidan responsiv -->
+    <link rel="stylesheet" href="style.css"> <!-- Länkar till CSS-filen -->
+    <script src="script.js"></script> <!-- Länkar till JavaScript-filen -->
+    <title>NalleBjörnar</title> <!-- Titel som visas i webbläsarens flik -->
 </head>
 
 <body>
+    <!-- Sidhuvud -->
     <header>
+        <!-- Titel för sidan -->
         <h1><span style="color:brown; font-style: italic;">Nalle</span>Björnar</h1>
+
+        <!-- Navigeringsfält -->
         <nav class="navbar">
             <!-- Hjärtikonen -->
             <div class="ikon">
-                <img src="img/heart.webp" alt="Hjärta" class="nav-icon" id="historik-ikon">
-                <div id="historik-dropdown" class="dropdown hidden">
+                <img src="img/heart.webp" alt="Hjärta" class="nav-icon" id="historik-ikon"> <!-- Ikon för historik -->
+                <div id="historik-dropdown" class="dropdown hidden"> <!-- Dropdown för historik -->
                     <h3>Tidigare gillat</h3>
-                    <ul id="historik-list"></ul>
+                    <ul id="historik-list"></ul> <!-- Lista för tidigare gillade produkter -->
                 </div>
             </div>
 
             <!-- Varukorgsikonen -->
             <div class="ikon">
-                <img src="img/shopping-cart.webp" alt="Varukorg" class="nav-icon" id="varukorg-ikon">
-                <div id="varukorg-dropdown" class="dropdown hidden">
+                <img src="img/shopping-cart.webp" alt="Varukorg" class="nav-icon" id="varukorg-ikon"> <!-- Ikon för varukorg -->
+                <div id="varukorg-dropdown" class="dropdown hidden"> <!-- Dropdown för varukorg -->
                     <ul id="varukorg-list"></ul> <!-- Lista för varukorgens produkter -->
                     <p id="varukorg-total">Totalt: 0 Kr</p> <!-- Element för att visa totalpris -->
                 </div>
@@ -36,27 +41,37 @@
 
             <!-- Menyikonen -->
             <div class="ikon">
-                <img src="img/menu.webp" alt="Meny" class="nav-icon" id="menu-ikon">
-                <div id="menu-dropdown" class="dropdown hidden">
+                <img src="img/menu.webp" alt="Meny" class="nav-icon" id="menu-ikon"> <!-- Ikon för meny -->
+                <div id="menu-dropdown" class="dropdown hidden"> <!-- Dropdown för meny -->
                     <ul>
-                        <li><a href="https://shop.nationalmuseum.se/blogs/inspiration/produkt-i-fokus-hantverket-bakom-var-exklusiva-nalle">Om oss</a></li>
-                        <li><a href="https://www.teddykompaniet.se/gosedjur/nallar">Sponsorer</a></li>
+                        <li><a href="https://shop.nationalmuseum.se/blogs/inspiration/produkt-i-fokus-hantverket-bakom-var-exklusiva-nalle">Om oss</a></li> <!-- Länk till "Om oss" -->
+                        <li><a href="https://www.teddykompaniet.se/gosedjur/nallar">Sponsorer</a></li> <!-- Länk till sponsorer -->
                     </ul>
                 </div>
+            </div>
+
+            <!-- Sökrutan -->
+            <div class="search-bar">
+                <button id="search-button" type="button">Sök</button> <!-- Sökknapp -->
+                <input type="text" id="search-input" placeholder="Sök" /> <!-- Sökruta -->
             </div>
         </nav>
     </header>
 
+    <!-- Huvudinnehåll -->
     <main>
+        <!-- Introduktionstext -->
         <p>Välkommen till den underbara världen av nallebjörnar! Utforska vår magiska samling av gosiga vänner, från klassiska favoriter till nya älsklingar. Hitta din perfekta kompanjon och låt oss sprida glädje tillsammans!</p>
+
+        <!-- Produktgrid -->
         <section class="produkt-grid">
             <!-- Första raden med fyra produkter -->
             <div class="produkt" data-id="1" data-namn="Björne" data-pris="175">
-                <img src="img/60c1b2cbad7b2.webp" alt="Björne">
-                <p>Björne: 175 Kr</p>
+                <img src="img/60c1b2cbad7b2.webp" alt="Björne"> <!-- Bild för produkten -->
+                <p>Björne: 175 Kr</p> <!-- Produktnamn och pris -->
                 <div class="vagn-knappar-container">
                     <div class="vagn-knappar">
-                        <img src="img/plus.webp" alt="plusTecken" onclick="läggTillIVarukorg(1)">
+                        <img src="img/plus.webp" alt="plusTecken" onclick="läggTillIVarukorg(1)"> <!-- Knapp för att lägga till i varukorgen -->
                     </div>
                 </div>
             </div>
@@ -133,14 +148,14 @@
                 <h2>Din Varukorg</h2>
                 <ul id="varukorg-list"></ul> <!-- Lista för varukorgens produkter -->
                 <p id="total-pris">Totalt: 0 Kr</p> <!-- Element för att visa totalpris -->
-                <button id="stäng-varukorg" type="button">Stäng</button>
+                <button id="stäng-varukorg" type="button">Stäng</button> <!-- Knapp för att stänga varukorgen -->
             </div>
         </div>
-
     </main>
 
+    <!-- Sidfot -->
     <footer>
-        <p>Kontakta oss via: <a href="mailto:DuFårInget@Svar.se">DuFårInget@Svar.se</a></p>
+        <p>Kontakta oss via: <a href="mailto:DuFårInget@Svar.se">DuFårInget@Svar.se</a></p> <!-- Kontaktinformation -->
     </footer>
 </body>
 

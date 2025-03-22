@@ -1,69 +1,189 @@
-body{
-    background-color: #fff;
-    font-family: "Emilys Candy", serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+/* Grundläggande styling för body */
+body {
+    background-color: #fff; /* Vit bakgrund */
+    font-family: "Emilys Candy", serif; /* Använd ett dekorativt typsnitt */
+    text-align: center; /* Centrera text */
+    margin: 0; /* Ta bort standardmarginaler */
+    padding: 0; /* Ta bort standardpadding */
 }
 
-/* General styling for the header */
+/* Styling för header */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #a8ebc5;
-    border-bottom: 2px solid #ddd;
+    display: flex; /* Flexbox för att placera element horisontellt */
+    justify-content: space-between; /* Sprid ut innehållet jämnt */
+    align-items: center; /* Centrera innehållet vertikalt */
+    padding: 10px 20px; /* Inre marginaler för utrymme */
+    background-color: #a8ebc5; /* Ljusgrön bakgrund */
+    border-bottom: 2px solid #ddd; /* Tunn grå linje längst ner */
 }
 
-/* Styling for the title */
+/* Styling för sidans titel */
 header h1 {
-    font-family: 'Emilys Candy', cursive;
-    font-size: 2rem;
-    margin: 0;
+    font-family: 'Emilys Candy', cursive; /* Dekorativt typsnitt */
+    font-size: 2rem; /* Stor textstorlek */
+    margin: 0; /* Ingen marginal */
 }
 
-/* Grundläggande stil för navbar */
+/* Styling för navigeringsfältet */
 .navbar {
-    display: flex;
-    justify-content: center; /* Centrera ikonerna horisontellt */
-    align-items: center;
-    gap: 20px; /* Lägg till avstånd mellan ikonerna */
+    display: flex; /* Flexbox för horisontell layout */
+    align-items: center; /* Centrera innehållet vertikalt */
+    justify-content: space-between; /* Sprid ut innehållet jämnt */
+    gap: 20px; /* Avstånd mellan ikoner och sökrutan */
 }
 
-/* Ikoner i navbar */
+/* Styling för sökrutan och knappen */
+.search-bar {
+    display: flex; /* Flexbox för att placera element */
+    flex-direction: column; /* Placera knappen ovanför sökrutan */
+    align-items: center; /* Centrera innehållet horisontellt */
+    gap: 5px; /* Avstånd mellan knappen och sökrutan */
+    max-width: 100%; /* Förhindra att sökrutan och knappen går utanför sidan */
+}
+
+/* Styling för sökrutan */
+.search-bar input {
+    padding: 5px 10px; /* Inre marginaler för utrymme */
+    font-size: 1rem; /* Standard textstorlek */
+    border: 1px solid #ccc; /* Ljusgrå kant */
+    border-radius: 5px; /* Rundade hörn */
+    width: 200px; /* Standardbredd */
+}
+
+/* Styling för sökknappen */
+.search-bar button {
+    padding: 5px 10px; /* Inre marginaler för utrymme */
+    font-size: 0.9rem; /* Mindre textstorlek */
+    background-color: white; /* Vit bakgrund */
+    color: black; /* Svart text */
+    border: 1px solid #ccc; /* Ljusgrå kant */
+    border-radius: 5px; /* Rundade hörn */
+    cursor: pointer; /* Ändra muspekaren till en hand vid hover */
+    flex-shrink: 0; /* Förhindra att knappen krymper för mycket */
+}
+
+/* Hover-effekt för sökknappen */
+.search-bar button:hover {
+    background-color: #f0f0f0; /* Ljusare grå bakgrund vid hover */
+}
+
+/* Anpassa sökrutan och knappen för mindre skärmar */
+@media (max-width: 1024px) {
+    .search-bar input {
+        max-width: 150px; /* Minska bredden för surfplattor */
+    }
+}
+
+@media (max-width: 768px) {
+    .search-bar input {
+        max-width: 120px; /* Minska bredden för mobiler */
+        font-size: 0.9rem; /* Minska textstorleken */
+    }
+
+    .search-bar button {
+        font-size: 0.8rem; /* Minska textstorleken för knappen */
+        padding: 4px 8px; /* Mindre padding för knappen */
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar input {
+        max-width: 100px; /* Ännu mindre bredd för små mobiler */
+        font-size: 0.8rem; /* Ytterligare minskning av textstorleken */
+    }
+
+    .search-bar button {
+        font-size: 0.7rem; /* Mindre textstorlek för knappen */
+        padding: 3px 6px; /* Mindre padding för knappen */
+    }
+}
+
+/* Styling för ikoner i navigeringsfältet */
 .ikon {
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+    position: relative; /* För att placera dropdowns relativt till ikonen */
+    cursor: pointer; /* Ändra muspekaren till en hand vid hover */
+    display: flex; /* Flexbox för att placera innehåll horisontellt */
+    align-items: center; /* Centrera innehållet vertikalt */
 }
 
-/* Dropdown-stil */
+/* Styling för dropdown-menyer */
 .dropdown {
-    position: absolute;
-    top: 30px;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    display: none;
-    z-index: 1000;
+    position: absolute; /* Placera dropdown relativt till ikonen */
+    top: 30px; /* Placera dropdown under ikonen */
+    right: 0; /* Justera till höger */
+    background-color: #fff; /* Vit bakgrund */
+    border: 1px solid #ccc; /* Ljusgrå kant */
+    border-radius: 5px; /* Rundade hörn */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lätt skugga */
+    padding: 10px; /* Inre marginaler */
+    display: none; /* Dölj dropdown som standard */
+    z-index: 1000; /* Placera dropdown ovanför annat innehåll */
 }
 
 /* Visa dropdown vid hover */
 .ikon:hover .dropdown {
-    display: block;
+    display: block; /* Visa dropdown vid hover */
 }
 
-/* Stil för produktgriden */
+/* Styling för produktgriden */
 .produkt-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Standardlayout */
-    gap: 20px;
-    padding: 20px;
+    display: grid; /* Använd grid-layout */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Anpassa kolumner efter utrymme */
+    gap: 20px; /* Avstånd mellan produkter */
+    padding: 20px; /* Inre marginaler */
+}
+
+/* Anpassa layouten för större skärmar */
+@media (min-width: 1024px) {
+    .produkt-grid {
+        grid-template-columns: repeat(4, 1fr); /* Fyra produkter horisontellt */
+    }
+}
+
+/* Styling för varje produkt */
+.produkt {
+    border: 1px solid #ddd; /* Ljusgrå kant */
+    border-radius: 8px; /* Rundade hörn */
+    padding: 10px; /* Inre marginaler */
+    text-align: center; /* Centrera text */
+    background-color: #fff; /* Vit bakgrund */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lätt skugga */
+}
+
+/* Styling för produktbilder */
+.produkt img {
+    max-width: 100%; /* Anpassa bredden till containern */
+    height: auto; /* Bevara bildens proportioner */
+    border-radius: 5px; /* Rundade hörn */
+}
+
+/* Styling för produktnamn och pris */
+.produkt p {
+    margin: 10px 0; /* Marginal ovanför och under texten */
+    font-weight: bold; /* Fet text */
+}
+
+/* Styling för knappar i produkterna */
+.produkt button {
+    margin-top: 10px; /* Marginal ovanför knappen */
+    padding: 5px 10px; /* Inre marginaler */
+    background-color: #007bff; /* Blå bakgrund */
+    color: #fff; /* Vit text */
+    border: none; /* Ingen kant */
+    border-radius: 5px; /* Rundade hörn */
+    cursor: pointer; /* Ändra muspekaren till en hand vid hover */
+}
+
+/* Hover-effekt för produktknappar */
+.produkt button:hover {
+    background-color: #0056b3; /* Mörkare blå bakgrund vid hover */
+}
+
+/* Styling för footer */
+footer {
+    background: white; /* Vit bakgrund */
+    padding: 10px; /* Inre marginaler */
+    margin-top: 20px; /* Marginal ovanför footern */
 }
 
 /* Anpassa layouten för större skärmar */
@@ -309,18 +429,6 @@ footer{
     margin-bottom: 10px;
 }
 
-#stäng-varukorg {
-    background: #f44336;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#stäng-varukorg:hover {
-    background: #d32f2f;
-}
 
 /* Dropdown-container */
 .varukorg-dropdown {
