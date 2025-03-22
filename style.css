@@ -34,9 +34,6 @@ header h1 {
 
 /* Styling för sökrutan och knappen */
 .search-bar {
-    display: flex; /* Flexbox för att placera element */
-    flex-direction: column; /* Placera knappen ovanför sökrutan */
-    align-items: center; /* Centrera innehållet horisontellt */
     gap: 5px; /* Avstånd mellan knappen och sökrutan */
     max-width: 100%; /* Förhindra att sökrutan och knappen går utanför sidan */
 }
@@ -75,6 +72,17 @@ header h1 {
 }
 
 @media (max-width: 768px) {
+
+    /* Add responsiveness for smaller screens */
+header {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ikon {
+    justify-content: center;
+    margin-top: 10px;
+}
     .search-bar input {
         max-width: 120px; /* Minska bredden för mobiler */
         font-size: 0.9rem; /* Minska textstorleken */
@@ -100,9 +108,7 @@ header h1 {
 
 /* Styling för ikoner i navigeringsfältet */
 .ikon {
-    position: relative; /* För att placera dropdowns relativt till ikonen */
     cursor: pointer; /* Ändra muspekaren till en hand vid hover */
-    display: flex; /* Flexbox för att placera innehåll horisontellt */
     align-items: center; /* Centrera innehållet vertikalt */
 }
 
@@ -128,7 +134,6 @@ header h1 {
 /* Styling för produktgriden */
 .produkt-grid {
     display: grid; /* Använd grid-layout */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Anpassa kolumner efter utrymme */
     gap: 20px; /* Avstånd mellan produkter */
     padding: 20px; /* Inre marginaler */
 }
@@ -234,7 +239,6 @@ footer {
 /* Gör produkten till en relativ container */
 .produkt {
     position: relative;
-    overflow: hidden;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 8px;
@@ -329,7 +333,6 @@ border-radius: 10px;
     height: 20px;
     cursor: pointer;
     transition: transform 0.2s ease;
-    display: inline-block; /* Säkerställ att knapparna visas horisontellt */
 }
 
 /* Lägg till en hover-effekt för knapparna */
@@ -378,18 +381,8 @@ footer{
     
 }
 
-/* Add responsiveness for smaller screens */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 
-    .ikon {
-        justify-content: center;
-        margin-top: 10px;
-    }
-}
+
 
 /* Modal för varukorgen */
 .varukorg-modal {
