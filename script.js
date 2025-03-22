@@ -72,9 +72,6 @@ function uppdateraVarukorg() {
     });
 
     totalPrisElement.textContent = `Totalt: ${totalPris} Kr`; // Uppdatera totalpris
-
-    // Spara varukorgen i LocalStorage
-    localStorage.setItem("varukorg", JSON.stringify(varukorg));
 }
 
 // Funktion för att visa varukorgen
@@ -115,15 +112,6 @@ function uppdateraHistorikDropdown() {
         li.innerHTML = `<span>${produkt.namn}</span> <span>${produkt.pris} Kr</span>`;
         historikList.appendChild(li);
     });
-}
-
-// Funktion för att ladda varukorgen från LocalStorage
-function laddaVarukorg() {
-    const sparadVarukorg = localStorage.getItem("varukorg");
-    if (sparadVarukorg) {
-        varukorg = JSON.parse(sparadVarukorg); // Återskapa varukorgen från LocalStorage
-        uppdateraVarukorg(); // Uppdatera varukorgen i gränssnittet
-    }
 }
 
 // Event Listeners
@@ -179,9 +167,4 @@ document.getElementById("historik-ikon").addEventListener("mouseenter", () => {
 // Funktion för att dölja historik-dropdown när man slutar hovra
 document.getElementById("historik-ikon").addEventListener("mouseleave", () => {
     document.getElementById("historik-dropdown").classList.add("hidden");
-});
-
-// Ladda varukorgen från LocalStorage när sidan laddas
-document.addEventListener("DOMContentLoaded", () => {
-    laddaVarukorg();
 });
