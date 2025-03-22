@@ -109,18 +109,23 @@ header {
 /* Styling för ikoner i navigeringsfältet */
 .ikon {
     cursor: pointer; /* Ändra muspekaren till en hand vid hover */
+    position: relative; /* För att placera dropdowns relativt till ikonen */
     align-items: center; /* Centrera innehållet vertikalt */
+    display: flex; /* Flexbox för att placera innehåll horisontellt */
 }
 
 /* Styling för dropdown-menyer */
 .dropdown {
     position: absolute; /* Placera dropdown relativt till ikonen */
-    top: 100px; /* Placera dropdown under ikonen */
-    right: 1; /* Justera till höger */
+    top: 30px; /* Placera dropdown under ikonen */
+    right: 0; /* Justera till höger */
     background-color: #fff; /* Vit bakgrund */
     border: 1px solid #ccc; /* Ljusgrå kant */
     border-radius: 5px; /* Rundade hörn */
-    padding: 5px; /* Inre marginaler */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lätt skugga */
+    padding: 10px; /* Inre marginaler */
+    display: none; /* Dölj dropdown som standard */
+    z-index: 1000; /* Placera dropdown ovanför annat innehåll */
 }
 
 /* Visa dropdown vid hover */
@@ -164,6 +169,7 @@ header {
     margin: 10px 0; /* Marginal ovanför och under texten */
     font-weight: bold; /* Fet text */
 }
+
 
 /* Hover-effekt för produktknappar */
 .produkt button:hover {
@@ -554,7 +560,18 @@ footer{
 /* Stil för länkarna */
 #menu-dropdown-content ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
+
+#menu-dropdown-content li {
+    margin-bottom: 10px;
+}
+
+#menu-dropdown-content li:last-child {
+    margin-bottom: 0;
+}
+
 #menu-dropdown-content a {
     text-decoration: none;
     color: black;
@@ -565,3 +582,4 @@ footer{
 #menu-dropdown-content a:hover {
     color: #007BFF; /* Blå färg vid hover */
 }
+
