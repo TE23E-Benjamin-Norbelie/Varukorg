@@ -1,3 +1,16 @@
+// Lista över produkter
+const produkter = [
+    { id: 1, namn: "Björne", pris: 175 },
+    { id: 2, namn: "Roger", pris: 185 },
+    { id: 3, namn: "Roger", pris: 185 },
+    { id: 4, namn: "Johan", pris: 230 },
+    { id: 5, namn: "Björn", pris: 195 },
+    { id: 6, namn: "Helge", pris: 270 },
+    { id: 7, namn: "Svennis", pris: 335 },
+    { id: 8, namn: "Holger", pris: 245 },
+    { id: 9, namn: "Nalle", pris: 160 },
+];
+
 // Varukorgsdata
 let varukorg = [];
 
@@ -6,43 +19,36 @@ let historik = [];
 
 // Funktion för att lägga till en produkt i varukorgen
 function läggTillIVarukorg(id) {
-    const produktElement = document.querySelector(`.produkt[data-id="${id}"]`);
-    const namn = produktElement.getAttribute("data-namn");
-    const pris = parseInt(produktElement.getAttribute("data-pris"));
+    const produkt = produkter.find(p => p.id === id);
+    const varukorgsProdukt = varukorg.find(p => p.id === id);
 
-    // Kontrollera om produkten redan finns i varukorgen
-    const produkt = varukorg.find(item => item.id === id);
-    if (produkt) {
-        produkt.antal++;
+    if (varukorgsProdukt) {
+        varukorgsProdukt.antal++;
     } else {
-        varukorg.push({ id, namn, pris, antal: 1 });
+        varukorg.push({ ...produkt, antal: 1 });
     }
 
     uppdateraVarukorg();
-    uppdateraDropdownVarukorg(); // Uppdatera dropdown
 }
 
-// Uppdatera historiken när en produkt tas bort från varukorgen
+// Funktion för att ta bort en produkt från varukorgen
 function taBortFrånVarukorg(id) {
-    const produktIndex = varukorg.findIndex(item => item.id === id);
-    if (produktIndex !== -1) {
-        const produkt = varukorg[produktIndex];
+    const varukorgsProdukt = varukorg.find(p => p.id === id);
 
-        // Lägg till produkten i historiken om den inte redan finns där
-        const historikProdukt = historik.find(item => item.id === id);
-        if (!historikProdukt) {
-            historik.push({ ...produkt });
-        }
+    if (varukorgsProdukt) {
+        varukorgsProdukt.antal--;
+        if (varukorgsProdukt.antal === 0) {
+            // Lägg till produkten i historiken om den inte redan finns där
+            const historikProdukt = historik.find(p => p.id === id);
+            if (!historikProdukt) {
+                historik.push({ ...varukorgsProdukt });
+            }
 
-        // Minska antalet eller ta bort produkten från varukorgen
-        produkt.antal--;
-        if (produkt.antal === 0) {
-            varukorg.splice(produktIndex, 1);
+            varukorg = varukorg.filter(p => p.id !== id);
         }
     }
 
     uppdateraVarukorg();
-    uppdateraDropdownVarukorg();
     uppdateraHistorikDropdown(); // Uppdatera historik-dropdown
 }
 
@@ -51,22 +57,22 @@ function uppdateraVarukorg() {
     const varukorgList = document.getElementById("varukorg-list");
     const totalPrisElement = document.getElementById("total-pris");
 
-    // Töm listan
-    varukorgList.innerHTML = "";
-
-    // Lägg till varje produkt i listan
+    varukorgList.innerHTML = ""; // Töm listan
     let totalPris = 0;
+
     varukorg.forEach(produkt => {
         const li = document.createElement("li");
         li.innerHTML = `
             <span>${produkt.namn} (${produkt.antal})</span>
             <span>${produkt.pris * produkt.antal} Kr</span>
+            <div class="vagn-knappar">
+                <img src="img/delete.webp" alt="minusTecken" onclick="taBortFrånVarukorg(${produkt.id})">
+            </div>
         `;
         varukorgList.appendChild(li);
         totalPris += produkt.pris * produkt.antal;
     });
 
-    // Uppdatera totalpris
     totalPrisElement.textContent = `Totalt: ${totalPris} Kr`;
 }
 
@@ -109,10 +115,8 @@ function uppdateraDropdownVarukorg() {
 function uppdateraHistorikDropdown() {
     const historikList = document.getElementById("historik-list");
 
-    // Töm listan
-    historikList.innerHTML = "";
+    historikList.innerHTML = ""; // Töm listan
 
-    // Lägg till varje produkt i historiken
     historik.forEach(produkt => {
         const li = document.createElement("li");
         li.innerHTML = `
@@ -144,4 +148,36 @@ varukorgDropdown.addEventListener("mouseenter", () => {
 // Dölj dropdown när man slutar hovra
 varukorgDropdown.addEventListener("mouseleave", () => {
     varukorgDropdown.classList.remove("visible");
+});
+
+// Hämta element
+const menuIkon = document.getElementById("menu-ikon");
+const menuDropdown = document.getElementById("menu-dropdown-content");
+
+// Visa/dölj dropdown vid klick
+menuIkon.addEventListener("click", () => {
+    const isVisible = menuDropdown.classList.contains("visible");
+    // Dölj alla andra dropdowns
+    document.querySelectorAll(".dropdown-content").forEach(content => content.classList.remove("visible"));
+    // Visa eller dölj menyn
+    if (!isVisible) {
+        menuDropdown.classList.add("visible");
+    }
+});
+
+// Dölj dropdown om användaren klickar utanför
+document.addEventListener("click", (event) => {
+    if (!menuIkon.contains(event.target) && !menuDropdown.contains(event.target)) {
+        menuDropdown.classList.remove("visible");
+    }
+});
+
+// Funktion för att visa historik-dropdown vid hover
+document.getElementById("historik-ikon").addEventListener("mouseenter", () => {
+    document.getElementById("historik-dropdown").classList.remove("hidden");
+});
+
+// Funktion för att dölja historik-dropdown när man slutar hovra
+document.getElementById("historik-ikon").addEventListener("mouseleave", () => {
+    document.getElementById("historik-dropdown").classList.add("hidden");
 });

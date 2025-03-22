@@ -26,10 +26,75 @@ header h1 {
     margin: 0;
 }
 
-/* Styling for the navigation bar */
+/* Grundläggande stil för navbar */
 .navbar {
     display: flex;
+    justify-content: center; /* Centrera ikonerna horisontellt */
     align-items: center;
+    gap: 20px; /* Lägg till avstånd mellan ikonerna */
+}
+
+/* Ikoner i navbar */
+.ikon {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown-stil */
+.dropdown {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: none;
+    z-index: 1000;
+}
+
+/* Visa dropdown vid hover */
+.ikon:hover .dropdown {
+    display: block;
+}
+
+/* Stil för produktgriden */
+.produkt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Standardlayout */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Anpassa layouten för större skärmar */
+@media (min-width: 1024px) {
+    .produkt-grid {
+        grid-template-columns: repeat(4, 1fr); /* Fyra produkter horisontellt */
+    }
+}
+
+/* Stil för varje produkt */
+.produkt {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.produkt img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.produkt p {
+    margin: 10px 0;
+    font-weight: bold;
 }
 
 /* Styling for the icons */
@@ -49,13 +114,6 @@ header h1 {
     transform: scale(1.2);
 }
 
-.produkt-grid{
-    display: grid;
-    grid-template-columns:repeat(4,1fr) ;
-    gap: 20px;
-    padding: 20px;
-}
-
 /* Gör produkten till en relativ container */
 .produkt {
     position: relative;
@@ -64,12 +122,35 @@ header h1 {
     padding: 10px;
     border-radius: 8px;
     transition: transform 0.3s ease;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Lägg till en hover-effekt för produkten */
 .produkt:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.produkt img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.produkt button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.produkt button:hover {
+    background-color: #0056b3;
 }
 
 .produkt-bild{
@@ -91,13 +172,19 @@ border-radius: 10px;
 }
 .vagn-knappar{
     display: flex;
-    flex-direction: row;
+    gap: 10px;
     align-items: center;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    margin: 2px;
+}
 
+.vagn-knappar img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.vagn-knappar img:hover {
+    transform: scale(1.2);
 }
 
 /* Positionera vagn-knappar-container längst ner */
@@ -121,8 +208,8 @@ border-radius: 10px;
 
 /* Stil för knapparna */
 .vagn-knappar img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     transition: transform 0.2s ease;
     display: inline-block; /* Säkerställ att knapparna visas horisontellt */
@@ -287,19 +374,6 @@ footer{
     text-align: right;
 }
 
-.ta-bort-knapp {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.ta-bort-knapp:hover {
-    background-color: #d32f2f;
-}
 
 .minus-knapp {
     width: 20px;
@@ -314,9 +388,36 @@ footer{
 }
 
 /* Dropdown för historik */
+#historik-dropdown {
+    position: absolute;
+    top: 30px;
+    border-radius: 8px;
+    padding: 10px;
+    width: 150px;
+    display: none; /* Dold som standard */
+}
+
+/* Visa dropdown vid hover */
+.ikon:hover #historik-dropdown {
+    display: block;
+}
+
+/* Stil för historiklistan */
+#historik-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#historik-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+/* Dropdown för historik */
 #historik-dropdown-content {
     position: absolute;
-    top: 40px;
     right: 0;
     background-color: white;
     border: 1px solid #ddd;
@@ -344,5 +445,51 @@ footer{
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
+}
+
+/* Dropdown-container för menyn */
+.menu-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown-innehåll */
+#menu-dropdown-content {
+    position: absolute;
+    top: 30px;
+    border-radius: 8px;
+    padding: 10px;
+    display: none; /* Dold som standard */
+}
+
+/* Visa dropdown vid hover */
+.menu-dropdown:hover #menu-dropdown-content {
+    display: block;
+}
+
+/* Stil för länkarna */
+#menu-dropdown-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu-dropdown-content li {
+    margin-bottom: 10px;
+}
+
+#menu-dropdown-content li:last-child {
+    margin-bottom: 0;
+}
+
+#menu-dropdown-content a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+#menu-dropdown-content a:hover {
+    color: #007BFF; /* Blå färg vid hover */
 }
 

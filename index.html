@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="sv">
 
-
 <head>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap');
@@ -17,114 +16,118 @@
     <header>
         <h1><span style="color:brown; font-style: italic;">Nalle</span>Björnar</h1>
         <nav class="navbar">
+            <!-- Hjärtikonen -->
             <div class="ikon">
                 <img src="img/heart.webp" alt="Hjärta" class="nav-icon" id="historik-ikon">
-                <div id="historik-dropdown-content" class="dropdown-content hidden">
+                <div id="historik-dropdown" class="dropdown hidden">
                     <h3>Tidigare gillat</h3>
                     <ul id="historik-list"></ul>
                 </div>
             </div>
+
+            <!-- Varukorgsikonen -->
             <div class="ikon">
-                <div class="varukorg-dropdown">
-                    <img src="img/shopping-cart.webp" alt="Varukorg" class="nav-icon" id="varukorg-ikon">
-                    <div id="varukorg-dropdown-content" class="dropdown-content hidden">
-                        <ul id="dropdown-varukorg-list"></ul>
-                        <p id="dropdown-total-pris">Totalt: 0 Kr</p>
-                    </div>
+                <img src="img/shopping-cart.webp" alt="Varukorg" class="nav-icon" id="varukorg-ikon">
+                <div id="varukorg-dropdown" class="dropdown hidden">
+                    <ul id="varukorg-list"></ul>
+                    <p id="varukorg-total">Totalt: 0 Kr</p>
                 </div>
-                <img src="img/menu.webp" alt="Meny" class="nav-icon">
+            </div>
+
+            <!-- Menyikonen -->
+            <div class="ikon">
+                <img src="img/menu.webp" alt="Meny" class="nav-icon" id="menu-ikon">
+                <div id="menu-dropdown" class="dropdown hidden">
+                    <ul>
+                        <li><a href="">Om oss</a></li>
+                        <li><a href="https://www.teddykompaniet.se/gosedjur/nallar">Sponsorer</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
-
 
     <main>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita consequuntur velit possimus commodi,
             sapiente, aliquid quam adipisci hic voluptas eius, numquam animi aperiam ex minus molestias temporibus eos
             modi vero?</p>
-        <div class="produkt-grid">
+        <section class="produkt-grid">
+            <!-- Första raden med fyra produkter -->
             <div class="produkt" data-id="1" data-namn="Björne" data-pris="175">
-                <img id="produkt-1" src="img/64ccb0448dddc.webp" alt="Björne">
-                <p>Björne: 175Kr</p>
+                <img src="img/60c1b2cbad7b2.webp" alt="Björne">
+                <p>Björne: 175 Kr</p>
                 <div class="vagn-knappar-container">
                     <div class="vagn-knappar">
-                        <img src="img/plus.webp" onclick="läggTillIVarukorg(1)" alt="Lägg till">
+                        <img src="img/plus.webp" alt="plusTecken" onclick="läggTillIVarukorg(1)">
                     </div>
                 </div>
             </div>
             <div class="produkt" data-id="2" data-namn="Roger" data-pris="185">
-                <img id="produkt-2" src="img/60c1b2cbad7b2.webp" alt="Roger">
-                <p>Roger: 185Kr</p>
+                <img src="img/64ccb0448dddc.webp" alt="Roger">
+                <p>Roger: 185 Kr</p>
                 <div class="vagn-knappar-container">
                     <div class="vagn-knappar">
                         <img src="img/plus.webp" alt="plusTecken" onclick="läggTillIVarukorg(2)">
                     </div>
                 </div>
             </div>
-            <div class="produkt" data-id="3" data-namn="Roger" data-pris="185">
-                <img id="produkt-3" src="img/666c2fa053248.webp" alt="Roger">
-                <p>Roger: 185Kr</p>
+            <div class="produkt" data-id="3" data-namn="Johan" data-pris="230">
+                <img src="img/66014ffa2cbaa.webp" alt="Johan">
+                <p>Johan: 230 Kr</p>
                 <div class="vagn-knappar-container">
                     <div class="vagn-knappar">
                         <img src="img/plus.webp" alt="plusTecken" onclick="läggTillIVarukorg(3)">
                     </div>
                 </div>
             </div>
-            <div class="produkt" data-id="4" data-namn="Johan" data-pris="230">
-                <img id="produkt-4" src="img/64ccb0448dddc.webp" alt="Johan">
-                <p>Johan: 230Kr</p>
+            <div class="produkt" data-id="4" data-namn="Björn" data-pris="195">
+                <img src="img/660151ef500b0.webp" alt="Björn">
+                <p>Björn: 195 Kr</p>
                 <div class="vagn-knappar-container">
                     <div class="vagn-knappar">
                         <img src="img/plus.webp" alt="plusTecken" onclick="läggTillIVarukorg(4)">
                     </div>
                 </div>
             </div>
-            <div class="produkt" data-id="5" data-namn="Björn" data-pris="195">
-                <img id="produkt-5" src="img/66e058fd675e3.webp" alt="Björn">
-                <p>Björn: 195Kr</p>
+
+            <!-- Andra raden med fyra produkter -->
+            <div class="produkt" data-id="5" data-namn="Helge" data-pris="270">
+                <img src="img/6601526b32eb3.webp" alt="Helge">
+                <p>Helge: 270 Kr</p>
                 <div class="vagn-knappar-container">
                     <div class="vagn-knappar">
                         <img src="img/plus.webp" alt="plusTecken" onclick="läggTillIVarukorg(5)">
                     </div>
                 </div>
             </div>
-            <div class="produkt" data-id="6" alt="plusTecken" data-namn="Helge" data-pris="270">
-                <img id="produkt-6" src="img/660151ef500b0.webp" alt="Helge">
-                <p>Helge: 270Kr</p>
+            <div class="produkt" data-id="6" data-namn="Svennis" data-pris="335">
+                <img src="img/66699599df9df.webp" alt="Svennis">
+                <p>Svennis: 335 Kr</p>
                 <div class="vagn-knappar-container">
                     <div class="vagn-knappar">
                         <img src="img/plus.webp" alt="plusTecken" onclick="läggTillIVarukorg(6)">
                     </div>
                 </div>
             </div>
-            <div class="produkt" data-id="7" alt="plusTecken" data-namn="Svennis" data-pris="335">
-                <img id="produkt-7" src="img/60c1b2cbad7b2.webp" alt="Svennis">
-                <p>Svennis: 335Kr</p>
+            <div class="produkt" data-id="7" data-namn="Holger" data-pris="245">
+                <img src="img/666c2fa053248.webp" alt="Holger">
+                <p>Holger: 245 Kr</p>
                 <div class="vagn-knappar-container">
                     <div class="vagn-knappar">
                         <img src="img/plus.webp" alt="plusTecken" onclick="läggTillIVarukorg(7)">
                     </div>
                 </div>
             </div>
-            <div class="produkt" data-id="8" data-namn="Holger" data-pris="245">
-                <img id="produkt-8" src="img/6601526b32eb3.webp" alt="Holger">
-                <p>Holger: 245Kr</p>
+            <div class="produkt" data-id="8" data-namn="Nalle" data-pris="160">
+                <img src="img/66e058fd675e3.webp" alt="Nalle">
+                <p>Nalle: 160 Kr</p>
                 <div class="vagn-knappar-container">
                     <div class="vagn-knappar">
                         <img src="img/plus.webp" alt="plusTecken" onclick="läggTillIVarukorg(8)">
                     </div>
                 </div>
             </div>
-            <div class="produkt" data-id="9" data-namn="Nalle" data-pris="160">
-                <img id="produkt-9" src="img/66014ffa2cbaa.webp" alt="Nalle">
-                <p>Nalle: 160Kr</p>
-                <div class="vagn-knappar-container">
-                    <div class="vagn-knappar">
-                        <img src="img/plus.webp" alt="plusTecken" onclick="läggTillIVarukorg(9)">
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
 
         <!-- Varukorgsmodal -->
         <div id="varukorg-modal" class="varukorg-modal hidden">
@@ -137,11 +140,10 @@
         </div>
 
     </main>
+
     <footer>
         <p>Kontakta oss via: <a href="mailto:DuFårInget@Svar.se">DuFårInget@Svar.se</a></p>
     </footer>
-
-
 </body>
 
 </html>
