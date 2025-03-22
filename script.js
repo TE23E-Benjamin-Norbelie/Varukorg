@@ -1,6 +1,9 @@
 // Varukorgsdata
 let varukorg = [];
 
+// Lista för att lagra historiken
+let historik = [];
+
 // Funktion för att lägga till en produkt i varukorgen
 function läggTillIVarukorg(id) {
     const produktElement = document.querySelector(`.produkt[data-id="${id}"]`);
@@ -19,18 +22,28 @@ function läggTillIVarukorg(id) {
     uppdateraDropdownVarukorg(); // Uppdatera dropdown
 }
 
-// Funktion för att ta bort en produkt från varukorgen
+// Uppdatera historiken när en produkt tas bort från varukorgen
 function taBortFrånVarukorg(id) {
     const produktIndex = varukorg.findIndex(item => item.id === id);
     if (produktIndex !== -1) {
-        varukorg[produktIndex].antal--;
-        if (varukorg[produktIndex].antal === 0) {
+        const produkt = varukorg[produktIndex];
+
+        // Lägg till produkten i historiken om den inte redan finns där
+        const historikProdukt = historik.find(item => item.id === id);
+        if (!historikProdukt) {
+            historik.push({ ...produkt });
+        }
+
+        // Minska antalet eller ta bort produkten från varukorgen
+        produkt.antal--;
+        if (produkt.antal === 0) {
             varukorg.splice(produktIndex, 1);
         }
     }
 
     uppdateraVarukorg();
-    uppdateraDropdownVarukorg(); // Uppdatera dropdown
+    uppdateraDropdownVarukorg();
+    uppdateraHistorikDropdown(); // Uppdatera historik-dropdown
 }
 
 // Funktion för att uppdatera varukorgens innehåll
@@ -82,6 +95,7 @@ function uppdateraDropdownVarukorg() {
         li.innerHTML = `
             <span>${produkt.namn} (${produkt.antal})</span>
             <span>${produkt.pris * produkt.antal} Kr</span>
+            <img src="img/delete.webp" alt="Ta bort" class="minus-knapp" onclick="taBortFrånVarukorg(${produkt.id})">
         `;
         dropdownVarukorgList.appendChild(li);
         totalPris += produkt.pris * produkt.antal;
@@ -91,6 +105,43 @@ function uppdateraDropdownVarukorg() {
     dropdownTotalPrisElement.textContent = `Totalt: ${totalPris} Kr`;
 }
 
+// Funktion för att uppdatera historik-dropdown
+function uppdateraHistorikDropdown() {
+    const historikList = document.getElementById("historik-list");
+
+    // Töm listan
+    historikList.innerHTML = "";
+
+    // Lägg till varje produkt i historiken
+    historik.forEach(produkt => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span>${produkt.namn}</span>
+            <span>${produkt.pris} Kr</span>
+        `;
+        historikList.appendChild(li);
+    });
+}
+
 // Event Listeners
 document.getElementById("stäng-varukorg").addEventListener("click", stängVarukorg);
 document.querySelector(".nav-icon[alt='Varukorg']").addEventListener("click", visaVarukorg);
+
+// Hämta element
+const varukorgIkon = document.getElementById("varukorg-ikon");
+const varukorgDropdown = document.getElementById("varukorg-dropdown-content");
+
+// Visa dropdown vid klick
+varukorgIkon.addEventListener("click", () => {
+    varukorgDropdown.classList.add("visible");
+});
+
+// Håll dropdown synlig vid hover
+varukorgDropdown.addEventListener("mouseenter", () => {
+    varukorgDropdown.classList.add("visible");
+});
+
+// Dölj dropdown när man slutar hovra
+varukorgDropdown.addEventListener("mouseleave", () => {
+    varukorgDropdown.classList.remove("visible");
+});

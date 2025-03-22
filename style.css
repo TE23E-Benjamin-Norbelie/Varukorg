@@ -247,7 +247,7 @@ footer{
 /* Dropdown-innehåll */
 .dropdown-content {
     position: absolute;
-    top: 40px;
+    top: 30px;
     right: 0;
     background-color: white;
     border: 1px solid #ddd;
@@ -261,6 +261,11 @@ footer{
 
 /* Visa dropdown vid hover */
 .varukorg-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Visa dropdown när den har klassen "visible" */
+.dropdown-content.visible {
     display: block;
 }
 
@@ -280,5 +285,64 @@ footer{
 #dropdown-total-pris {
     font-weight: bold;
     text-align: right;
+}
+
+.ta-bort-knapp {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.ta-bort-knapp:hover {
+    background-color: #d32f2f;
+}
+
+.minus-knapp {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+
+.minus-knapp:hover {
+    transform: scale(1.2);
+}
+
+/* Dropdown för historik */
+#historik-dropdown-content {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 200px;
+    z-index: 1000;
+    display: none; /* Dold som standard */
+}
+
+/* Visa dropdown vid hover */
+.ikon:hover #historik-dropdown-content {
+    display: block;
+}
+
+/* Stil för historiklistan */
+#historik-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#historik-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }
 
